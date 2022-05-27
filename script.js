@@ -1,0 +1,1 @@
+function js_sbmt_btn() {}

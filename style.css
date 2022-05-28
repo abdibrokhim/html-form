@@ -18,3 +18,8 @@ body {
 	background-color: #ffffff;
 	border-color: #ffffff
 }
+.error {
+	color: red;
+	font-size: 14px;
+	margin-top: 10px;
+}

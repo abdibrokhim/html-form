@@ -18,8 +18,11 @@ body {
 	background-color: #ffffff;
 	border-color: #ffffff
 }
-.error {
+.form-field .error {
 	color: red;
 	font-size: 14px;
-	margin-top: 10px;
+	margin-top: 15px;
+}
+.success span{
+	visibility: hidden;
 }

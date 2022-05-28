@@ -3,15 +3,15 @@
 if(isset($_POST['submit']))
 {
 
-	$link = mysqli_connect("localhost", "root", "", "students");
+	$link = mysqli_connect("localhost", "root", "", "members");
 
-	$fullname = $_POST["fullname"];
+	$username = $_POST["username"];
 	$email = $_POST["email"];
-	$password = $_POST["passwd"];
+	$password = $_POST["password"];
 
 
-	$sql = "INSERT INTO students_table (fullname, email, password) 
-			VALUES ('$fullname', '$email', '$password')";
+	$sql = "INSERT INTO members_table (username, email, password) 
+			VALUES ('$username', '$email', '$password')";
 
 	if(mysqli_query($link, $sql))
 	{

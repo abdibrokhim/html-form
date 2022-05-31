@@ -1,38 +1,20 @@
 <?php
-
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
     $link = mysqli_connect("localhost", "root", "", "members");
 
+    $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $query = "SELECT * FROM members_table WHERE email = '$email'";
-    $query1 = "SELECT * FROM members_table WHERE password = '$password'";
-
-    $result = mysqli_query($query);
-    $result1 = mysqli_query($query1);
-    
-    if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-            echo 'found!';
-        } else {
-            echo 'not found';
-        }
-    } else {
-        echo 'Error: '.mysqli_error();
+    $sql = mysqli_query($link,"SELECT * FROM members_table where email='$email' and password='md5($password)'");
+    $row = mysqli_fetch_array($sql);
+    if(is_array($row)) {
+        $_SESSION["email"]=$row['email'];
+        $_SESSION["username"]=$row['username'];
+        header("Location: index.html");
     }
-
-    if ($result1) {
-        if (mysqli_num_rows($result1) > 0) {
-            echo 'found!';
-        } else {
-            echo 'not found';
-        }
-    } else {
-        echo 'Error: '.mysqli_error();
+    else {
+        echo "Invalid Email or Password";
     }
-
 }
-
 ?>

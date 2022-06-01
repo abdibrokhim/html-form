@@ -199,15 +199,21 @@ if (isset($_POST['signIn'])) {
                 document.getElementById('nameError').innerHTML = "Write your name, please!";
                 return false;
             }
-            if (email.length == "") {
+            if (email.length == "" && username.length !== "") {
+                document.getElementById('nameError').innerHTML = null;
                 document.getElementById('emailError').innerHTML = "Write your email, please!";
                 return false;
             }
-            if (password.length == "") {
+            if (password.length == "" && email.length !== "" && username.length !== "") {
+                document.getElementById('nameError').innerHTML = null;
+                document.getElementById('emailError').innerHTML = null;
                 document.getElementById('passwordError').innerHTML = "Write your password, please!";
                 return false;
             }
-            if (confirm_password.length == "") {
+            if (confirm_password.length == "" && password.length !== "" && email.length !== "" && username.length !== "") {
+                document.getElementById('nameError').innerHTML = null;
+                document.getElementById('emailError').innerHTML = null;
+                document.getElementById('passwordError').innerHTML = null;
                 document.getElementById('confirm_passwordError').innerHTML = "Please, confirm your password!";
                 return false;
             }
@@ -220,7 +226,7 @@ if (isset($_POST['signIn'])) {
                 return false;
             }
             else {
-                document.getElementById('nameSuccess').innerHTML = "Success";
+                // document.getElementById('nameSuccess').innerHTML = "Success";
                 return true;
             }
         }
@@ -234,12 +240,13 @@ if (isset($_POST['signIn'])) {
                 document.getElementById('emailError1').innerHTML = "Write your email, please!";
                 return false;
             }
-            if (password.length == "") {
+            if (password.length == "" && email.length !== "") {
+                document.getElementById('emailError1').innerHTML = null;
                 document.getElementById('passwordError1').innerHTML = "Write your password, please!";
                 return false;
             }
             else {
-                document.getElementById('nameSuccess1').innerHTML = "Success";
+                // document.getElementById('nameSuccess1').innerHTML = "Success";
                 return true;
             }
         }

@@ -70,6 +70,7 @@ if (mysqli_num_rows($result) > 0) {
         <td>ID</td>
         <td>Name</td>
         <td>Email</td>
+        <td>Password</td>
     </tr>
     </thead>
     <?php
@@ -79,8 +80,10 @@ if (mysqli_num_rows($result) > 0) {
         <tbody>
         <tr>
             <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["name"]; ?></td>
+            <td><?php echo $row["username"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
+            <td><?php echo $row["password"]; ?></td>
+
         </tr>
         </tbody>
         <?php

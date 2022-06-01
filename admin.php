@@ -20,25 +20,20 @@
             margin-left:auto; margin-right:auto;
 
         }
-
         .table thead tr{
             background: #009879;
             color: #ffffff;
             text-align: left;
             font-weight: bold;
         }
-
         .table tr,
         .table td
         {
             padding: 12px 15px;
         }
-
         .table tbody tr {
             border-bottom: 1px solid #dddddd;
         }
-
-
         .table tbody tr:nth-of-type(even){
             background: #f3f3f3;
         }
@@ -70,7 +65,6 @@ if (mysqli_num_rows($result) > 0) {
         <td>ID</td>
         <td>Name</td>
         <td>Email</td>
-        <td>Password</td>
     </tr>
     </thead>
     <?php
@@ -82,7 +76,6 @@ if (mysqli_num_rows($result) > 0) {
             <td><?php echo $row["id"]; ?></td>
             <td><?php echo $row["username"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
-            <td><?php echo $row["password"]; ?></td>
 
         </tr>
         </tbody>

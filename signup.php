@@ -1,17 +1,18 @@
 <?php
-$link = mysqli_connect("localhost", "root", "", "members");
+if (isset($_POST['submit'])) {
 
-$username = $_POST["username"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+    $link = mysqli_connect("localhost", "root", "", "members");
 
-$sql = mysqli_query($link,"SELECT * FROM members_table where email='$email'");
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-if (mysqli_num_rows($sql) > 0) {
-    echo "Email is already exists";
-    exit;
-} else {
-    if (isset($_POST['submit'])) {
+    $sql = mysqli_query($link,"SELECT * FROM members_table where email='$email'");
+
+    if (mysqli_num_rows($sql) > 0) {
+        echo "Email is already exists";
+        exit;
+    } else {
         $sql = "INSERT INTO members_table (username, email, password) VALUES ('$username', '$email', '$password')";
 
         if (mysqli_query($link, $sql)) {
@@ -21,8 +22,6 @@ if (mysqli_num_rows($sql) > 0) {
         }
 
         mysqli_close($link);
-    } else {
-        echo "Error";
     }
 }
 ?>

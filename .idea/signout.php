@@ -2,6 +2,6 @@
 $link = mysqli_connect("localhost", "root", "", "members");
 
 unset($_SESSION["id"]);
-unset($_SESSION["name"]);
+unset($_SESSION["username"]);
 header("Location: signin.php");
 ?>
